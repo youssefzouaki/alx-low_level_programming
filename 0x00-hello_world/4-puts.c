@@ -1,10 +1,8 @@
 #include <stdio.h>
-
 /**
  * main - Entry point
- *It returns 0 to indicate successful execution.
  *
- * @return 0 for successful execution
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
