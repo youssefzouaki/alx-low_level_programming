@@ -5,14 +5,14 @@
  *
  * Return: Return 0
  */
-int main(viod)
+int main(void)
 {
 	char l;
 
-	for (l = 'a'; l < z ; l++)
+	for (l = 'a'; l <= z ; l++)
 	{
 		putchar(l);
 	}
-	putchar(\n);
+	putchar('\n');
 	return (0);
 }
