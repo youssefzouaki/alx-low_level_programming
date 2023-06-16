@@ -2,7 +2,7 @@
 /**
  * main - Entry point
  *
- * Return/ Alwas 0 (Success°
+ * Return/ Alwas 0 (Success)
  */
 int main(void)
 {
