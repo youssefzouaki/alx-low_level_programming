@@ -10,28 +10,28 @@ int main(void)
 
 	for (l = 48; l < 58 ; l++)
 	{
-		for (i = 48; i < 57; i++)
+	for (i = 48; i < 57; i++)
+	{
+	for (j = l; j < 58; j++)
+	{
+	for (k = 48; k < 58; k++)
+	{
+		if ((j != l) || (k >= i + 1))
 		{
-			for (j = l; j < 58; j++)
+			putchar(l);
+			putchar(i);
+			putchar(' ');
+			putchar(j);
+			putchar(k);
+			if ((l != 57) || (i != 56) || (j != 57) || (k != 57))
 			{
-				for (k = 48; k < 58; k++)
-				{
-					if ((j != l) || (k >= i + 1))
-					{
-						putchar(l);
-						putchar(i);
-						putchar(' ');
-						putchar(j);
-						putchar(k);
-						if ((l != 57) || (i != 56) || (j != 57) || (k != 57))
-							{
-							putchar(',');
-							putchar(' ');
-							}
-					}
-				}
+				putchar(',');
+				putchar(' ');
 			}
 		}
+	}
+	}
+	}
 	}
 	putchar('\n');
 	return (0);
