@@ -6,7 +6,7 @@
 
 void jack_bauer(void)
 {
-	int l, i, j, k;
+	int i, j;
 
 	i = 0;
 
