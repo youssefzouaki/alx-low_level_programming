@@ -13,13 +13,14 @@ int main(void)
 
 	fibo = 1;
 	fibo1 = 1;
-	for (i = 0; i < 50 ; i++)
+	for (i = 1; i < 50 ; i++)
 	{
 		printf("%ld, ", fibo);
 		fibo2 = fibo1;
 		fibo1 = fibo;
 		fibo = fibo1 + fibo2;
 	}
+	printf("%ld", fibo);
 	printf("\n");
 	
 	return (0);
