@@ -13,7 +13,7 @@ int main(void)
 
 	fibo = 1;
 	fibo1 = 1;
-	for (i = 1; i < 98 ; i++)
+	for (i = 1; i < 97 ; i++)
 	{
 		printf("%lu, ", fibo);
 		fibo2 = fibo1;
