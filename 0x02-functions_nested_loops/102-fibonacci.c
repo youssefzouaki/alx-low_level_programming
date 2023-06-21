@@ -22,6 +22,6 @@ int main(void)
 	}
 	printf("%ld", fibo);
 	printf("\n");
-	
+
 	return (0);
 }
