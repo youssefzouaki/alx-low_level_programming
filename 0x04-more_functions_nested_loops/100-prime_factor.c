@@ -2,6 +2,30 @@
 #include "main.h"
 
 /**
+ * isPrime - check if a number is prime.
+ * @num: the number
+ * Return: 1 if a number is prime,
+ * or 0 is a number isn't
+*/
+
+int isPrime(unsigned long num)
+{
+	unsigned long i;
+
+	if (num <= 2)
+	return (1);
+
+	for (i = 3; i * i < num; i++)
+	{
+		if (num % i == 0)
+			return (0);
+
+	}
+	return (1);
+
+}
+
+/**
  * main - finds and prints the largest prime factor
  * of the number 612852475143,
  * followed by a new line.
@@ -10,9 +34,9 @@
 
 int main(void)
 {
-   unsigned int num, i, lfact;
+   unsigned long num, i, lfact;
 
-	num = 1231952;
+	num = 1000;
 
 	/**
 	 * Divide the number by 2
@@ -45,7 +69,7 @@ int main(void)
 	 * print the largest prime factor
 	*/
 
-	printf("%lu", lfact);
+	printf("%lu\n", lfact);
 
 	return (0);
 }

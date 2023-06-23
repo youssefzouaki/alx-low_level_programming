@@ -11,12 +11,12 @@ int isPrime(unsigned long num)
 {
 	unsigned long i;
 
-	if (n <= 2)
+	if (num <= 2)
 	return (1);
 
 	for (i = 3; i * i < num; i++)
 	{
-		if (n % i == 0)
+		if (num % i == 0)
 			return (0);
 
 	}
