@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "main.h"
 
 /**
  * isPrime - check if a number is prime.
@@ -36,7 +35,7 @@ int main(void)
 {
    unsigned long num, i, lfact;
 
-	num = 1000;
+	num = 612852475143;
 
 	/**
 	 * Divide the number by 2
