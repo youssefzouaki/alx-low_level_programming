@@ -5,7 +5,7 @@
  * to the buffer pointed to by dest.
  * @dest: pointer to a string
  * @src: pointer to a string
- * 
+ *
  * Return: painter to dest.
 */
 

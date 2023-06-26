@@ -1,7 +1,7 @@
 /**
  * _atoi - convert a string to an integer.
  * @s: pointer to a character
- * 
+ *
  * Return: an integre
 */
 

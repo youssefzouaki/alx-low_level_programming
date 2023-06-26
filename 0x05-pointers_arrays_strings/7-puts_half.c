@@ -4,7 +4,7 @@
  * _puts -  prints half of a string,
  * followed by a new line.
  * @str: pointer to a string
- * 
+ *
  * Return: nothing.
 */
 

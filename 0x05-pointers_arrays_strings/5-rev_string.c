@@ -3,7 +3,7 @@
 /**
  * rev_string - reverses a string.
  * @s: pointer to a string.
- * 
+ *
  * Return: nothing
 */
 

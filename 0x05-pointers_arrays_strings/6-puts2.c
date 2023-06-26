@@ -5,7 +5,7 @@
  * starting with the first character,
  * followed by a new line.
  * @str: pointer to a string.
- * 
+ *
  * Return: nothing
 */
 

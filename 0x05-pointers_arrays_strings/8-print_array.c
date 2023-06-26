@@ -5,7 +5,7 @@
  * followed by a new line.
  * @a: pointer to an integre.
  * @n: integre
- * 
+ *
  * Return: nothing
 */
 
