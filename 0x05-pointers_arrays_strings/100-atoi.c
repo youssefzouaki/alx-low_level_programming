@@ -8,8 +8,8 @@
 int _atoi(char *s)
 {
 	int i, j, k, l, p, d;
-	char* s1;
-	char* s2;
+	char *s1;
+	char *s2;
 
 	s1 = s;
 	j = 0;
