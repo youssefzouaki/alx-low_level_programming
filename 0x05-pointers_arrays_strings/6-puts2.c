@@ -12,7 +12,8 @@
 void puts2(char *str)
 {
 	char *s;
-
+	int i, j;
+	
 	i = 0;
 	s = str;
 

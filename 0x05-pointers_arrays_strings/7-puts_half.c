@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _puts -  prints half of a string,
+ * puts_half - prints half of a string,
  * followed by a new line.
  * @str: pointer to a string
  *
@@ -23,7 +23,7 @@ void puts_half(char *str)
 		s++;
 	}
 
-	n = (i + 1 )/ 2;
+	n = (i + 1) / 2;
 	str = str + n;
 	while (*str != '\0')
 	{
