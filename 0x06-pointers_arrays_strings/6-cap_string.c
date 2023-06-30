@@ -16,6 +16,11 @@ char *cap_string(char *str)
 		str++;
 		i++;
 	}
+	else
+	{
+		str++;
+		i++;
+	}
 
 	while (*str != '\0')
 	{
@@ -23,12 +28,19 @@ char *cap_string(char *str)
 		{
 			str++;
 			i++;
+
 			if (*str >= 'a' && *str <= 'z')
 			{
 				*str = *str - 32;
 				str++;
 				i++;
 			}
+			else
+			{
+				str++;
+				i++;
+			}
+
 		}
 		else
 		{
@@ -36,6 +48,7 @@ char *cap_string(char *str)
 			i++;
 		}
 	}
+
 	return (str - i);
 
 }
