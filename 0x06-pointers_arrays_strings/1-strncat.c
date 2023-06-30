@@ -1,5 +1,3 @@
-#include "main.h"
-
 /**
  * _strncat - is similar to the _strcat function,
  * except that:
