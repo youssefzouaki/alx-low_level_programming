@@ -35,12 +35,6 @@ char *cap_string(char *str)
 				str++;
 				i++;
 			}
-			else
-			{
-				str++;
-				i++;
-			}
-
 		}
 		else
 		{
