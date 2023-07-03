@@ -1,4 +1,3 @@
-#include <stddef.h>
 /**
  * _strchr - locates a character in a string.
  * @s: pointer to the string s
@@ -18,9 +17,9 @@ char *_strchr(char *s, char c)
 		else
 		s++;
 	}
-	if (*s == '\0')
+	if (*s == '\0' || s == 0)
 	{
-		return NULL;
+		return 0;
 	}
 	return (s);
 }
