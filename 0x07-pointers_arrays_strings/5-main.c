@@ -8,11 +8,15 @@
  */
 int main(void)
 {
-    char *s = "hellow, world";
-    char *f = "world";
+    char *s = "hello, world";
+    char *f = "\0";
     char *t;
 
     t = _strstr(s, f);
-    printf("%s\n", t);
+    if (t != NULL)
+    {
+        printf("%s\n", t);
+    }
+    
     return (0);
 }
