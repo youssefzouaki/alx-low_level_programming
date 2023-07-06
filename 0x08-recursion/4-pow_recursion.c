@@ -1,5 +1,5 @@
 /**
- * _strlen_recursion - returns the value of x^y.
+ * _pow_recursion - returns the value of x^y.
  * @x: integer
  * @y: integer
  *
