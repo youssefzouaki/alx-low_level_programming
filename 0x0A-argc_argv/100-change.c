@@ -19,20 +19,22 @@ int main(int argc, char *argv[])
 		puts("Error");
 		return (1);
 	}
-	if (argv[1][0] == '-')
+	num = atoi(argv[1]);
+	sum = 0;
+	if (num < 0)
 	{
 		puts("0\n");
+		return (0);
 	}
-	else
-	{
-		num = atoi(argv[1]);
-		sum = 0;
+	
 		for (i = 0; i < 5; i++)
 		{
+			if (num >= cents[i])
+			{
 			sum += num / cents[i];
 			num %= cents[i];
+			}
 		}
 		printf("%d\n", sum);
-	}
 	return (0);
 }
