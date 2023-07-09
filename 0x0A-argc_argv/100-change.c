@@ -1,13 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "main.h"
+
 /**
  * main - prints the minimum number of coins to make change for an amount of money.
  * @argc: should be 1
  * @argv: pointer to a string containe an amount of money.
  *
  * Return: 0 (sucess), 1 (error)
-*/
+ */
 int main(int argc, char *argv[])
 {
 	int sum, num, i;
@@ -18,8 +19,10 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (1);
 	}
+
 	num = atoi(argv[1]);
 	sum = 0;
+
 	if (num < 0)
 	{
 		printf("0\n");
@@ -30,10 +33,11 @@ int main(int argc, char *argv[])
 		{
 			if (num >= cents[i])
 			{
-			sum += num / cents[i];
-			num %= cents[i];
+				sum += num / cents[i];
+				num %= cents[i];
 			}
 		}
+
 		printf("%d\n", sum);
 	return (0);
 }
