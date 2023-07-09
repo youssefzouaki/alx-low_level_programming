@@ -1,44 +1,6 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "main.h"
-#include <unistd.h>
-
-/**
- * _putchar - writes the character c to stdout
- * 
- * Return: on success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-
-int _putchar(char c)
-{
-	return(write(1, &c, 1));
-}
-
-/**
- * print_number - prints an integer.
- * @n: input n
-*/
-void print_number(int n)
-{
-	unsigned int i, p;
-
-	i = 1;
-
-	p = n;
-	while (p / 10 != 0)
-	{
-		p /= 10;
-		i *= 10;
-	}
-	while (i != 1)
-	{
-		_putchar (n / i + '0');
-		n %= i;
-		i /= 10;
-	}
-	_putchar (n % 10 + '0');
-	_putchar ('\n');
-}
 /**
  * main - prints the minimum number of coins to make change for an amount of money.
  * @argc: should be 1
@@ -49,35 +11,28 @@ void print_number(int n)
 */
 int main(int argc, char *argv[])
 {
-	int num, cents;
+	int sum, num, i;
+	int cents[] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
 	{
-		_putchar ('E');
-		_putchar ('r');
-		_putchar ('r');
-		_putchar ('o');
-		_putchar ('r');
-		_putchar ('\n');
+		puts("Error");
 		return (1);
 	}
 	if (argv[1][0] == '-')
 	{
-		_putchar ('0');
-		_putchar ('\n');
+		puts("0\n");
 	}
 	else
 	{
-		cents = atoi(argv[1]);
-		num = cents / 25;
-		cents %= 25;
-		num += cents / 10;
-		cents %= 10;
-		num += cents / 5;
-		cents %= 5;
-		num += cents / 2;
-		num += cents % 2;
-		print_number (num);
+		num = atoi(argv[1]);
+		sum = 0;
+		for (i = 0; i < 5; i++)
+		{
+			sum += num / cents[i];
+			num %= cents[i];
+		}
+		printf("%d\n", sum);
 	}
 	return (0);
 }
