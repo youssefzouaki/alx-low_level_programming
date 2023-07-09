@@ -16,17 +16,17 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		puts("Error");
+		printf("Error");
 		return (1);
 	}
 	num = atoi(argv[1]);
 	sum = 0;
 	if (num < 0)
 	{
-		puts("0\n");
+		printf("0\n");
 		return (0);
 	}
-	
+
 		for (i = 0; i < 5; i++)
 		{
 			if (num >= cents[i])
