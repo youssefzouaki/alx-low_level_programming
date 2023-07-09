@@ -34,8 +34,8 @@ int main(int argc, char *argv[])
 	{
 		if (num >= coins[j])
 		{
-			result += num / coins[i];
-			num %= coins[i];
+			result += num / coins[j];
+			num %= coins[j];
 		}
 
 	}
