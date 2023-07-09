@@ -6,8 +6,7 @@
  * @argc: should be 1
  * @argv: pointer to a string containe an amount of money.
  *
- * Return: 0 if argc equale 1
- * return 1 if argc not exactly 1
+ * Return: 0 (sucess), 1 (error)
 */
 int main(int argc, char *argv[])
 {
