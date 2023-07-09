@@ -1,17 +1,19 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include "main.h"
 
 /**
- * main - prints the minimum number of coins to make change for an amount of money.
- * @argc: should be 1
- * @argv: pointer to a string containe an amount of money.
+ * main - prints the minimum number of coins to
+ * make change for an amount of money
+ * @argc: number of arguments
+ * @argv: array of arguments
  *
- * Return: 0 (sucess), 1 (error)
+ * Return: 0 (Success), 1 (Error)
  */
 int main(int argc, char *argv[])
 {
-	int sum, num, i;
-	int cents[] = {25, 10, 5, 2, 1};
+	int num, j, result;
+	int coins[] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
 	{
@@ -20,7 +22,7 @@ int main(int argc, char *argv[])
 	}
 
 	num = atoi(argv[1]);
-	sum = 0;
+	result = 0;
 
 	if (num < 0)
 	{
@@ -28,15 +30,15 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 
-	for (i = 0; i < 5; i++)
+	for (j = 0; j < 5 && num >= 0; j++)
 	{
-		if (num >= cents[i])
+		while (num >= coins[j])
 		{
-			sum += num / cents[i];
-			num %= cents[i];
+			result++;
+			num -= coins[j];
 		}
 	}
 
-	printf("%d\n", sum);
+	printf("%d\n", result);
 	return (0);
 }
