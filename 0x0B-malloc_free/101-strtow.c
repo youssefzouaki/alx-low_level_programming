@@ -38,14 +38,14 @@ char **strtow(char *str)
 
 	while (*(str + len))
 		len++;
-	h = count_word (str);
+	h = count_word(str);
 	if (h == 0)
 		return (NULL);
-	s = malloc((h + 1) * sizeof(char *) );
+	s = malloc((h + 1) * sizeof(char *));
 	if (s == NULL)
 		return (NULL);
 	j = 0;
-	for (i = 0; i < len; i++)
+	for (i = 0; i <= len; i++)
 	{
 	if (str[i] == ' ' || str[i] == '\0')
 	{
