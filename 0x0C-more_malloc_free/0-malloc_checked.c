@@ -1,10 +1,8 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
 
 /**
- * malloc_checked -  allocates memory using malloc.
+ * malloc_checked - allocates memory using malloc.
  * @b: size of mount memory
  *
  * Return: pointer to the allocated memory
