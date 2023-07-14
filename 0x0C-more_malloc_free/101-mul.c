@@ -4,13 +4,27 @@
 #include <limits.h>
 
 /**
- * main -  multiplies two positive numbers.
- * @ac: number of arg
- * @av: pointer to an array of char
+ * main - multiplies two numbers
+ * @argc: number of arguments
+ * @argv: array of arguments
  *
- * Return: pointer to the allocated memory
+ * Return: 0 (Success), 1 (Error)
  */
-void *main(unsigned int ac, char *av[])
+int main(int argc, char *argv[])
 {
+	unsigned int result, num1, num2;
 
+	if (argc < 3 || argc > 3)
+	{
+		printf("Error\n");
+		exit(98);
+	}
+
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[2]);
+	result = num1 * num2;
+
+	printf("%d\n", result);
+
+	return (0);
 }
