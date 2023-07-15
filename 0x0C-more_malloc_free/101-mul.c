@@ -74,7 +74,6 @@ int main(int argc, char *argv[])
 	}
 	if (!z)
 		_putchar('0');
-	
 	_putchar('\n');
 	free(result);
 	return (0);
