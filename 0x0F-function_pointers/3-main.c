@@ -9,7 +9,6 @@
  */
 int main(int argc, char *argv[])
 {
-	unsigned int i;
 	int a, b, result;
 	int (*op)(int, int);
 
