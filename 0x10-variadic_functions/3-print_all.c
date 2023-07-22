@@ -17,16 +17,16 @@ void print_all(const char * const format, ...)
 		{
 			switch (format[j])
 			{
-			case "c":
-				printf("%s%c", co, va_arg(args, char));
+			case 'c':
+				printf("%s%c", co, va_arg(args, int));
 				break;
-			case "i":
+			case 'i':
 				printf("%s%d", co, va_arg(args, int));
 				break;
-			case "f":
+			case 'f':
 				printf("%s%f", co, va_arg(args, double));
 				break;
-			case "s":
+			case 's':
 				str = va_arg(args, char *);
 				if(!str)
 					str = "(nil)";
@@ -37,7 +37,7 @@ void print_all(const char * const format, ...)
 				j++;
 				continue;
 			}
-		co = ", "
+		co = ", ";
 		i++;
 		}
 	}
