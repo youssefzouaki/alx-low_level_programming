@@ -8,9 +8,11 @@ void print_all(const char * const format, ...)
 {
 	int i = 0;
 	char *str, *co = "";
+
 	va_list args;
 
 	va_start(args, format);
+
 	if (format)
 	{
 		while (!format[i])
@@ -32,7 +34,6 @@ void print_all(const char * const format, ...)
 					str = "(nil)";
 				printf("%s%s", co, str);
 				break;
-
 			default:
 				i++;
 				continue;
@@ -44,5 +45,4 @@ void print_all(const char * const format, ...)
 
 	printf("\n");
 	va_end(args);
-
 }
