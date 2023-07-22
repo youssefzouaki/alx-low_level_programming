@@ -6,7 +6,7 @@
  */
 void print_all(const char * const format, ...)
 {
-	int i, j;
+	int i = 0;
 	char *str, *co = "";
 	va_list args;
 
@@ -15,7 +15,7 @@ void print_all(const char * const format, ...)
 	{
 		while (!format[i])
 		{
-			switch (format[j])
+			switch (format[i])
 			{
 			case 'c':
 				printf("%s%c", co, va_arg(args, int));
@@ -34,7 +34,7 @@ void print_all(const char * const format, ...)
 				break;
 
 			default:
-				j++;
+				i++;
 				continue;
 			}
 		co = ", ";
