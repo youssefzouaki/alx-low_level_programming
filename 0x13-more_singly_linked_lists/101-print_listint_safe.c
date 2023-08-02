@@ -9,13 +9,10 @@ size_t print_listint_safe(const listint_t *head)
 	const listint_t *temp2 = NULL, *temp1 = NULL;
 	size_t n, num = 0;
 
-	if (!head)
-		exit (98);
-
 	temp1 = head;
 	while (temp1)
 	{
-		printf("[%p] %d\n", (void*)temp1, temp1->n);
+		printf("[%p] %d\n", (void *)temp1, temp1->n);
 		temp1 = temp1->next;
 		num++;
 		temp2 = head;
@@ -24,12 +21,14 @@ size_t print_listint_safe(const listint_t *head)
 		{
 			if (temp1 == temp2)
 			{
-				printf("-> [%p] %d\n", (void*)temp1, temp1->n);
+				printf("-> [%p] %d\n", (void *)temp1, temp1->n);
 				return (num);
 			}
 			temp2 = temp2->next;
 			n++;
 		}
+		if (!head)
+			exit(98);
 	}
 	return (num);
 }
