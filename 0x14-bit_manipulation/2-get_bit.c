@@ -11,6 +11,11 @@ int get_bit(unsigned long int n, unsigned int index)
 	unsigned int j = 0, bit, temp;
 
 	temp = n;
+	if (n == 0 || n == 1)
+	{
+		return (n & 1);
+	}
+
 	while ((temp >> 1) > 0 && j != index)
 		j++;
 
