@@ -22,6 +22,7 @@ int main(int ac, char **av)
 
 	if (fd2 == -1)
 		dprintf(2, "Error: Can't write to file %s\n", av[2]), exit(99);
+
 	while ((r = read(fd1, buffer, 1024)) > 0)
 			if (write(fd2, buffer, r) != r)
 				dprintf(2, "Error: Can't write to file %s\n", av[2]), exit(99);
@@ -33,5 +34,5 @@ int main(int ac, char **av)
 	fd2 = close(fd1);
 	if (fd2 == -1)
 		dprintf(2, "Error: Can't close fd %d\n", fd2), exit(100);
-	return (EXIT_SUCCESS);
+	return (0);
 }
