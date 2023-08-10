@@ -18,8 +18,7 @@ void close_file(int fd);
 */
 int main(int ac, char **av)
 {
-	int fd_from, fd_to;
-	ssize_t r, w;
+	int fd_from, fd_to, r, w;
 	char *buffer;
 
 	if (ac != 3)
@@ -31,7 +30,7 @@ int main(int ac, char **av)
 	fd_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 
 	do {
-		if (r == -1 || fd_to == -1)
+		if (r == -1 || fd_from == -1)
 		{
 			dprintf(2, ERR_NOREAD, av[1]);
 			free(buffer);
@@ -45,11 +44,13 @@ int main(int ac, char **av)
 			exit(99);
 		}
 		r = read(fd_from, buffer, 1024);
-		fd_to = open(av[2], O_WRONLY | O_APPEND, 0664);
+		fd_to = open(av[2], O_WRONLY | O_APPEND);
 	} while (r > 0);
+
 	free(buffer);
 	close_file(fd_from);
 	close_file(fd_to);
+
 	return (0);
 }
 
