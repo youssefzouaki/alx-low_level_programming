@@ -22,7 +22,7 @@ int main(int ac, char **av)
 	char *buffer;
 
 	if (ac != 3)
-		dprintf(2, USAGE), exit(97);
+		dprintf(STDERR_FILENO, USAGE), exit(97);
 
 	buffer = create_buffer(av[2]);
 	fd_from = open(av[1], O_RDONLY);
@@ -32,14 +32,14 @@ int main(int ac, char **av)
 	do {
 		if (r == -1 || fd_from == -1)
 		{
-			dprintf(2, ERR_NOREAD, av[1]);
+			dprintf(STDERR_FILENO, ERR_NOREAD, av[1]);
 			free(buffer);
 			exit(98);
 		}
 		w = write(fd_to, buffer, r);
 		if (fd_to == -1 || w == -1)
 		{
-			dprintf(2, ERR_NOWRITE, av[2]);
+			dprintf(STDERR_FILENO, ERR_NOWRITE, av[2]);
 			free(buffer);
 			exit(99);
 		}
@@ -66,7 +66,7 @@ char *create_buffer(char *file)
 
 		if (buffer == NULL)
 		{
-			dprintf(2, ERR_NOWRITE, file);
+			dprintf(STDERR_FILENO, ERR_NOWRITE, file);
 			exit(99);
 		}
 	return (buffer);
@@ -83,7 +83,7 @@ void close_file(int fd)
 		c = close(fd);
 		if (c == -1)
 		{
-			dprintf(2, ERR_NOCLOSE, fd);
+			dprintf(STDERR_FILENO, ERR_NOCLOSE, fd);
 			exit(100);
 		}
 	}
