@@ -47,7 +47,8 @@ int main(int ac, char *av[])
 		close_file(fd);
 		exit(98);
 	}
-	if (h.e_ident[0] == 0x7f && h.e_ident[1] == 'E' && h.e_ident[2] == 'L' && h.e_ident[3] == 'F')
+	if (h.e_ident[0] == 0x7f && h.e_ident[1] == 'E'
+		&& h.e_ident[2] == 'L' && h.e_ident[3] == 'F')
 	{
 		printf("ELF Header:\n");
 	}
@@ -103,6 +104,8 @@ void print_class(Elf64_Ehdr h)
 	case ELFCLASSNONE:
 		printf("none\n");
 		break;
+	default:
+		printf("<unknown>: %x\n", h.e_ident[EI_CLASS]);
 	}
 }
 /**
@@ -125,6 +128,8 @@ void print_data(Elf64_Ehdr h)
 	case ELFDATANONE:
 		printf("none\n");
 		break;
+	default:
+		printf("<unknown>: %x\n", h.e_ident[EI_DATA]);
 	}
 }
 /**
@@ -141,9 +146,8 @@ void print_version(Elf64_Ehdr h)
 	case EV_CURRENT:
 		printf(" (current)\n");
 		break;
-	case EV_NONE:
+	default:
 		printf("\n");
-		break;
 		break;
 	}
 }
@@ -275,7 +279,7 @@ void print_entry(Elf64_Ehdr h)
 	printf("  Entry point address:               ");
 	if (h.e_ident[EI_DATA] != ELFDATA2MSB)
 	{
-		i = h.e_ident[EI_CLASS] == ELFCLASS32 ? 3 : 7;
+		i = h.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
 		while (!p[i])
 			i--;
 		printf("%x", p[i--]);
@@ -287,7 +291,7 @@ void print_entry(Elf64_Ehdr h)
 	else
 	{
 		i = 0;
-		len = h.e_ident[EI_CLASS] == ELFCLASS32 ? 3 : 7;
+		len = h.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
 		while (!p[i])
 			i++;
 		printf("%x", p[i++]);
