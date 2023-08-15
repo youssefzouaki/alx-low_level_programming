@@ -3,11 +3,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define USAGE "Usage: cp elf_hader elf_filename\n"
-#define ERR_NOOPEN "Error: Can't open file %s\n"
-#define ERR_NOREAD "Error: Can't read from file %s\n"
+#define USAGE "Usage: elf_hader elf_filename\n"
+#define ERR_NOOPEN "Error: Can't open file: %s\n"
+#define ERR_NOREAD "Error: Can't read from file: %s\n"
 #define ERR_NOELF "Not elf file: %s\n"
-#define ERR_NOCLOSE "Error: Can't close fd %d\n"
+#define ERR_NOCLOSE "Error: Can't close fd: %d\n"
 
 void print_magic(Elf64_Ehdr h);
 void print_class(Elf64_Ehdr h);
@@ -29,7 +29,8 @@ void close_file(int fd);
 */
 int main(int ac, char *av[])
 {
-	int fd, r;
+	int fd;
+	ssize_t r;
 	Elf64_Ehdr h;
 
 	if (ac != 2)
@@ -39,7 +40,7 @@ int main(int ac, char *av[])
 	if (fd == -1)
 		dprintf(STDERR_FILENO, ERR_NOOPEN, av[1]), exit(98);
 	r = read(fd, &h, sizeof(h));
-	if (r < -1 || r != sizeof(h))
+	if (r < 1 || r != sizeof(h))
 	{
 		dprintf(STDERR_FILENO, ERR_NOREAD, av[1]);
 		close_file(fd);
@@ -65,9 +66,7 @@ int main(int ac, char *av[])
 	print_abi(h);
 	print_type(h);
 	print_entry(h);
-
 	close_file(fd);
-
 	return (0);
 }
 /**
