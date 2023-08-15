@@ -50,7 +50,7 @@ int main(int ac, char *av[])
 	if (h.e_ident[0] == 0x7f && h.e_ident[1] == 'E'
 				&& h.e_ident[2] == 'L' && h.e_ident[3] == 'F')
 	{
-		printf("ELF Header\n");
+		printf("ELF Header:\n");
 	}
 	else
 	{
