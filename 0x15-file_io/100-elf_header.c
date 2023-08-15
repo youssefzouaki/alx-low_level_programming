@@ -14,6 +14,7 @@ void print_class(Elf64_Ehdr h);
 void print_data(Elf64_Ehdr h);
 void print_version(Elf64_Ehdr h);
 void print_osabi(Elf64_Ehdr h);
+void print_osabi_plus(Elf64_Ehdr h);
 void print_abi(Elf64_Ehdr h);
 void print_type(Elf64_Ehdr h);
 void print_entry(Elf64_Ehdr h);
@@ -215,6 +216,7 @@ void print_osabi_plus(Elf64_Ehdr h)
 	default:
 		printf("<unknown>: %x\n", h.e_ident[EI_OSABI]);
 	}
+}
 /**
  * print_abi - Prints abi of an ELF header.
  * @h: the ELF header structer.
