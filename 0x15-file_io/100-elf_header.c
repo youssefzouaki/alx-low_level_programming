@@ -92,7 +92,7 @@ void print_magic(Elf64_Ehdr h)
 void print_class(Elf64_Ehdr h)
 {
 	printf("  Class:                             ");
-	switch (h.e_ident[EI_NIDENT])
+	switch (h.e_ident[EI_CLASS])
 	{
 	case ELFCLASS64:
 		printf("ELF64\n");
@@ -185,6 +185,27 @@ void print_osabi(Elf64_Ehdr h)
 	case ELFOSABI_TRU64:
 		printf("UNIX - TRU64\n");
 		break;
+	default:
+		print_osabi_plus(h);
+		break;
+	}
+}
+/**
+ * print_osabi_plus - Prints osabi of an ELF header.
+ * @h: the ELF header structer.
+ *
+ * Return: nothing.
+ */
+void print_osabi_plus(Elf64_Ehdr h)
+{
+	switch (h.e_ident[EI_OSABI])
+	{
+	case ELFOSABI_MODESTO:
+		printf("Novell - Modesto\n");
+		break;
+	case ELFOSABI_OPENBSD:
+		printf("UNIX - OpenBSD\n");
+		break;
 	case ELFOSABI_ARM:
 		printf("ARM\n");
 		break;
@@ -192,9 +213,8 @@ void print_osabi(Elf64_Ehdr h)
 		printf("Standalone App\n");
 		break;
 	default:
-		printf("<unknown: %x>\n", h.e_ident[EI_OSABI]);
+		printf("<unknown>: %x\n", h.e_ident[EI_OSABI]);
 	}
-}
 /**
  * print_abi - Prints abi of an ELF header.
  * @h: the ELF header structer.
@@ -217,7 +237,8 @@ void print_type(Elf64_Ehdr h)
 	int i = 0;
 
 	printf("  Type:                              ");
-
+	if (h.e_ident[EI_DATA] == ELFDATA2MSB)
+		i = 1;
 	switch (p[i])
 	{
 	case ET_NONE:
@@ -236,7 +257,7 @@ void print_type(Elf64_Ehdr h)
 		printf("DYN (Shared object file)\n");
 		break;
 	default:
-		printf("<unknown: %x>\n", p[i]);
+		printf("<unknown>: %x\n", p[i]);
 	}
 }
 /**
